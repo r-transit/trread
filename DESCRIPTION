@@ -1,6 +1,6 @@
 Package: trread
 Type: Package
-Title: A Transit (GTFS) File Reader For R 
+Title: A Transit File Reader For R 
 Version: 0.2.0
 Authors@R: c(
     person("Tom", "Buckley", role = c("aut", "cre"), email = "tom@tbuckl.com"),
@@ -9,7 +9,7 @@ Authors@R: c(
     person("Charles Hans", "Thompson", role = c("ctb"), email = "hans.thompson1@gmail.com"),
     person("Michael", "Sumner", role = c("ctb"))
   )
-Description: Read GTFS zipfiles into a list of R dataframes. Some validation of the data structure against the specification.  
+Description: Read general transit feed specification files into a list of R dataframes. Some validation of the data structure against the specification.  
 License: GPL
 LazyData: TRUE
 Depends: R (>= 3.2.4)
