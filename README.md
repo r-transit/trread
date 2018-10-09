@@ -1,5 +1,6 @@
 [![Travis-CI Build Status](https://travis-ci.com/r-transit/trread.svg?branch=master)](https://travis-ci.com/r-transit/trread)
 [![cran version](https://www.r-pkg.org/badges/version/trread)](https://cran.r-project.org/package=trread)
+[![](https://cranlogs.r-pkg.org/badges/trread)](https://cran.r-project.org/package=trread)
 
 ## Description
 
