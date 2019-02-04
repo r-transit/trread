@@ -1,7 +1,7 @@
 Package: trread
 Type: Package
 Title: Read, Validate, and Analyze Files in the General Transit Feed Specification  
-Version: 0.2.6
+Version: 0.2.7
 Authors@R: c(
     person("Tom", "Buckley", role = c("aut", "cre"), email = "tom@tbuckl.com"),
     person("Danton", "Noriega-Goodwin", role = c("aut"), email = "danton.noriega@gmail.com"),
