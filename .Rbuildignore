@@ -15,3 +15,7 @@
 ^docs$
 ^_pkgdown\.yml$
 ^data-raw/
+^README_files/
+contributing.md
+conduct.md
+^docs/

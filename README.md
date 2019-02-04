@@ -1,71 +1,58 @@
-[![Travis-CI Build Status](https://travis-ci.com/r-transit/trread.svg?branch=master)](https://travis-ci.com/r-transit/trread)
-[![cran version](https://www.r-pkg.org/badges/version/trread)](https://cran.r-project.org/package=trread)
+[![Travis-CI Build
+Status](https://travis-ci.com/r-transit/trread.svg?branch=master)](https://travis-ci.com/r-transit/trread)
+[![CRAN
+status](http://www.r-pkg.org/badges/version-ago/trread?)](https://cran.r-project.org/package=trread)
+[![Project Status: Active](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) 
 [![](https://cranlogs.r-pkg.org/badges/trread)](https://cran.r-project.org/package=trread)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/trread)](http://cranlogs.r-pkg.org/badges/grand-total/trread)
 
-## Description
+# trread
 
-`trread` is a package for reading the GTFS data standard into R. It can
-read directly from URL’s or flat files, and does some validation of the
-data structure against the specification.
+Use trread to calculate transit
+frequencies, and validate transit feeds. trread reads the [General Transit Feed Specification](http://gtfs.org/) into [tidyverse](https://tibble.tidyverse.org/) and [simple features](https://en.wikipedia.org/wiki/Simple_Features) dataframes.
 
-## Goal
-
-This is a highly simplified fork/piece of the
-[gtfsr](https://github.com/ropensci/gtfsr/) package.
-
-The goal is to break that package into parts to simplify maintenance.
-
-## Contributors
-
-Among the many
-[contributors](https://github.com/ropensci/gtfsr/graphs/contributors),
-[Danton Noriega](https://github.com/dantonnoriega) wrote much of this
-package.
+If you need to work with map data consider using [tidytransit](https://github.com/r-transit/trread/).
 
 ## Installation
 
-Install from CRAN:
+This package requires a working installation of
+[sf](https://github.com/r-spatial/sf#installing).
 
-`install.packages('trread')`
-
-## Usage
-
-Fetch data for a bus system in Accra, Ghana from GitHub.
+A CRAN version is available:
 
 ``` r
-library(trread)
-library(dplyr)
-
-accra_gtfs <- import_gtfs("https://github.com/AFDLab4Dev/AccraMobility/raw/master/GTFS/GTFS_Accra.zip")
-#> [1] "agency.txt"      "calendar.txt"    "feed_info.txt"   "frequencies.txt"
-#> [5] "routes.txt"      "shapes.txt"      "stop_times.txt"  "stops.txt"      
-#> [9] "trips.txt"
+install.packages('trread')
 ```
 
-Count and list the number of stops per route.
+For the development version from Github:
 
-``` r
-attach(accra_gtfs)
-
-routes_df %>% inner_join(trips_df, by="route_id") %>%
-  inner_join(stop_times_df) %>% 
-    inner_join(stops_df, by="stop_id") %>% 
-      group_by(route_long_name) %>%
-        summarise(stop_count=n_distinct(stop_id)) %>%
-  arrange(desc(stop_count))
-#> # A tibble: 271 x 2
-#>    route_long_name          stop_count
-#>    <chr>                         <int>
-#>  1 Kasoa ↔ Accra New Town          116
-#>  2 Omanjor ↔ Accra CMB             109
-#>  3 Manhean ↔ Accra CMB             105
-#>  4 Adeyman ↔ Abeka Lapaz           104
-#>  5 Ashongman ↔ Abeka Lapaz         101
-#>  6 Nungua ↔ Circle Odorna           91
-#>  7 Odorna ↔ Nungua                  91
-#>  8 Teshie-Nungua ↔ Achimota         91
-#>  9 Accra CMB ↔ Ablekuma             86
-#> 10 Kasoa ↔ Korle Bu                 84
-#> # ... with 261 more rows
 ```
+# install.packages("devtools")
+devtools::install_github("r-transit/trread")
+```
+
+# Usage
+
+Please see:
+
+- [the tutorial](http://trread.r-transit.org/articles/introduction.html)   
+- [the reference](http://trread.r-transit.org/reference/index.html).   
+
+
+# Background
+
+trread is a
+[fork](https://en.wikipedia.org/wiki/Fork_\(software_development\)) of
+[gtfsr](https://github.com/ropensci/gtfsr), published to
+[CRAN](https://cran.r-project.org/), with frequency/headway calculation
+functions. 
+
+# Contributing
+
+If you would like to contribute please feel free to issue a pull request or [open an issue](https://github.com/r-transit/trread/issues/new).
+
+# Contributors
+
+Among the many
+[contributors](https://github.com/r-transit/trread/graphs/contributors),
+[Danton Noriega](https://github.com/dantonnoriega) wrote much of this
+package.

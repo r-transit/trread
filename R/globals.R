@@ -4,6 +4,7 @@ if(getRversion() >= "3.1.0") {
       '.',
       'agency_id',
       'color',
+      'df_name',
       'field_provided_status',
       'field_spec',
       'field',
@@ -31,7 +32,20 @@ if(getRversion() >= "3.1.0") {
       'trip_id',
       'validation_details',
       'validation_status',
-      'provided_status'
+      'provided_status',
+      'loc_lat',
+      'loc_lng',
+      'median_headways', 
+      'mean_headways', 
+      'st_dev_headways', 
+      'stop_count',
+      'bool',
+      'start_date',
+      'end_date',
+      'weekday',
+      'exception_type',
+      'arrival_time_hms',
+      'departure_time_hms'
     )
   )
 }

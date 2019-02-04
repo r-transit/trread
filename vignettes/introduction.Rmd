@@ -1,0 +1,91 @@
+---
+title: "introduction"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{trread-introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(trread)
+library(dplyr)
+```
+[
+![Travis-CI Build
+Status](https://travis-ci.com/r-transit/trread.svg?branch=master)](https://travis-ci.com/r-transit/trread)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/trread?)](https://cran.r-project.org/package=trread)
+
+trread makes it easy to work with transit data by simplifying [General Transit Feed Specification](http://gtfs.org/) data (the standard format for storing transit data) into tidyverse and sf-friendly dataframes. Use it to calculate transit frequencies, and validate transit feeds.
+
+trread is a [fork](https://en.wikipedia.org/wiki/Fork_(software_development)) of [gtfsr](https://github.com/ropensci/gtfsr), published to [CRAN](https://cran.r-project.org/), with frequency calculation functions, and without GTFS-specific interactive cartography features. 
+
+## Installation
+
+This package requires a working installation of [sf](https://github.com/r-spatial/sf#installing). 
+
+```{r, eval=FALSE}
+install.packages('trread')
+
+# For the development version from Github:
+# install.packages("devtools")
+devtools::install_github("r-transit/trread")
+```
+
+## Usage
+
+### Read GTFS data
+
+```{r}
+# Read in GTFS feed
+# here we use a feed included in the package, but note that you can read directly from the New York City Metropolitan Transit Authority using the following URL:
+# nyc <- read_gtfs("http://web.mta.info/developers/data/nyct/subway/google_transit.zip")
+
+local_gtfs_path <- system.file("extdata", 
+                               "google_transit_nyc_subway.zip", 
+                               package = "trread")
+nyc <- read_gtfs(local_gtfs_path, 
+                 local=TRUE,
+                 frequency=TRUE)
+```
+
+### Headways by Route
+
+View the headways along routes as a dataframe. `routes_frequency_df` is added to the list of gtfs dataframes read in by `read_gtfs`.
+
+Use the GTFS Table Relationships diagram below to join these data to relevant data, for example, the more detailed route names on the `routes_df`. 
+
+```{r}
+head(nyc$routes_frequency_df)
+```
+
+| route\_id | median\_headways | mean\_headways | st\_dev\_headways | stop\_count |
+| :-------- | ---------------: | -------------: | ----------------: | ----------: |
+| GS        |                4 |              4 |              0.01 |           4 |
+| L         |                4 |              4 |              0.13 |          48 |
+| 1         |                5 |              5 |              0.14 |          76 |
+| 7         |                5 |              5 |              0.29 |          44 |
+| 6         |                6 |              7 |              2.84 |          76 |
+| E         |                6 |             23 |             53.01 |          48 |
+
+### Headways by Stop
+
+View the headways at stops. `stops_frequency_df` is added to the list of gtfs dataframes read in by `read_gtfs`.   
+
+```{r}
+head(nyc$stops_frequency_df)
+```
+
+    ## # A tibble: 6 x 4
+    ## # Groups:   direction_id, stop_id [6]
+    ##   direction_id stop_id stop_name             headway
+    ##          <int> <chr>   <chr>                   <dbl>
+    ## 1            0 902N    Times Sq - 42 St         3.60
+    ## 2            1 901S    Grand Central - 42 St    3.60
+    ## 3            1 902S    Times Sq - 42 St         3.60
+    ## 4            0 901N    Grand Central - 42 St    3.61
+    ## 5            0 702N    Mets - Willets Point     3.72
+    ## 6            0 707N    Junction Blvd            3.72
