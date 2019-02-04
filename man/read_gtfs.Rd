@@ -14,8 +14,6 @@ read_gtfs(path, local = FALSE, quiet = TRUE, frequency = FALSE)
 \item{quiet}{Boolean. Whether to see file download progress and files extract. FALSE by default.}
 
 \item{frequency}{Boolean. Whether to add frequency/headway calculations to the gtfs object}
-
-\item{geometry}{Boolean. Whether to add simple feature dataframes of routes and stops to the gtfs object}
 }
 \value{
 A GTFS object. That is, a list of dataframes of GTFS data.

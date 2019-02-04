@@ -10,7 +10,6 @@
 #' @param path Character. url link to zip file OR path to local zip file. if to local path, then option `local` must be set to TRUE.
 #' @param local Boolean. If the paths are searching locally or not. Default is FALSE (that is, urls).
 #' @param quiet Boolean. Whether to see file download progress and files extract. FALSE by default.
-#' @param geometry Boolean. Whether to add simple feature dataframes of routes and stops to the gtfs object
 #' @param frequency Boolean. Whether to add frequency/headway calculations to the gtfs object
 #'
 #' @return A GTFS object. That is, a list of dataframes of GTFS data.
