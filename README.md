@@ -1,4 +1,3 @@
-
 [![Travis-CI Build
 Status](https://travis-ci.com/r-transit/tidytransit.svg?branch=master)](https://travis-ci.com/r-transit/tidytransit)
 [![CRAN
