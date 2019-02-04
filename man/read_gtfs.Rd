@@ -4,8 +4,7 @@
 \alias{read_gtfs}
 \title{Get and validate dataframes of General Transit Feed Specification (GTFS) data.}
 \usage{
-read_gtfs(path, local = FALSE, quiet = TRUE, geometry = FALSE,
-  frequency = FALSE)
+read_gtfs(path, local = FALSE, quiet = TRUE, frequency = FALSE)
 }
 \arguments{
 \item{path}{Character. url link to zip file OR path to local zip file. if to local path, then option \code{local} must be set to TRUE.}
@@ -14,9 +13,9 @@ read_gtfs(path, local = FALSE, quiet = TRUE, geometry = FALSE,
 
 \item{quiet}{Boolean. Whether to see file download progress and files extract. FALSE by default.}
 
-\item{geometry}{Boolean. Whether to add simple feature dataframes of routes and stops to the gtfs object}
-
 \item{frequency}{Boolean. Whether to add frequency/headway calculations to the gtfs object}
+
+\item{geometry}{Boolean. Whether to add simple feature dataframes of routes and stops to the gtfs object}
 }
 \value{
 A GTFS object. That is, a list of dataframes of GTFS data.
@@ -31,7 +30,7 @@ and which required and optional columns are present.
 \examples{
 \donttest{
 library(dplyr)
-u1 <- "https://github.com/r-transit/tidytransit/raw/master/inst/extdata/sample-feed-fixed.zip"
+u1 <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
 sample_gtfs <- read_gtfs(u1)
 attach(sample_gtfs)
 #list routes by the number of stops they have
