@@ -19,7 +19,7 @@
 #' @importFrom dplyr %>% arrange summarise group_by inner_join
 #' @examples \donttest{
 #' library(dplyr)
-#' u1 <- "https://github.com/r-transit/tidytransit/raw/master/inst/extdata/sample-feed-fixed.zip"
+#' u1 <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
 #' sample_gtfs <- read_gtfs(u1)
 #' attach(sample_gtfs)
 #' #list routes by the number of stops they have
@@ -32,7 +32,6 @@
 #' }
 read_gtfs <- function(path, local = FALSE, 
                       quiet = TRUE, 
-                      geometry=FALSE,
                       frequency=FALSE) {
   # download zip file
   if(!local) {
@@ -49,10 +48,6 @@ read_gtfs <- function(path, local = FALSE,
   }
   
   gtfs_obj <- create_gtfs_object(tmpdirpath, file_list_df$filename, quiet = quiet)
-  
-  if(geometry) {
-    gtfs_obj <- gtfs_as_sf(gtfs_obj,quiet=quiet)
-  }
   
   if(frequency) {
     gtfs_obj <- get_route_frequency(gtfs_obj) 
@@ -80,7 +75,7 @@ read_gtfs <- function(path, local = FALSE,
 #' @importFrom dplyr %>% arrange summarise group_by inner_join
 #' @examples \donttest{
 #' library(dplyr)
-#' u1 <- "https://github.com/r-transit/tidytransit/raw/master/inst/extdata/sample-feed-fixed.zip"
+#' u1 <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
 #' sample_gtfs <- import_gtfs(u1)
 #' attach(sample_gtfs)
 #' #list routes by the number of stops they have

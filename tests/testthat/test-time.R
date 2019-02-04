@@ -46,7 +46,7 @@ test_that('get_date_service_table() uses the right dates', {
     start_date = lubridate::ymd("20180101"), # monday
     end_date = lubridate::ymd("20180131")) # wednesday
 
-  date_service <- tidytransit:::get_date_service_table(gtest)
+  date_service <- trread:::get_date_service_table(gtest)
   
   expect_true(lubridate::ymd("20180101") %in% date_service$date)
   expect_false(lubridate::ymd("20180102") %in% date_service$date)
@@ -72,7 +72,7 @@ test_that('get_date_service_table() works with additions and exceptions', {
     exception_type = c(2, 1)
   )
   
-  date_service <- tidytransit:::get_date_service_table(gtest)
+  date_service <- get_date_service_table(gtest)
   
   # exception
   mar14 <- date_service[date_service$date == lubridate::ymd("20180613"),]

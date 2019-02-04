@@ -21,7 +21,7 @@ Get a set of stops for a given set of service ids and route ids
 }
 \examples{
 \donttest{
-local_gtfs_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "tidytransit")
+local_gtfs_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
 nyc <- read_gtfs(local_gtfs_path,local=TRUE)
 select_service_id <- filter(nyc$calendar_df,monday==1) \%>\% pull(service_id)
 select_route_id <- sample_n(nyc$routes_df,1) \%>\% pull(route_id)

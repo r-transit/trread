@@ -121,7 +121,7 @@ shapes_for_routes <- function(g1, route_ids, service_ids, directional=FALSE) {
 #' @return stops for a given service
 #' @export
 #' @examples \donttest{
-#' local_gtfs_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "tidytransit")
+#' local_gtfs_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
 #' nyc <- read_gtfs(local_gtfs_path,local=TRUE)
 #' select_service_id <- filter(nyc$calendar_df,monday==1) %>% pull(service_id)
 #' select_route_id <- sample_n(nyc$routes_df,1) %>% pull(route_id)

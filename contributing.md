@@ -9,7 +9,7 @@ You can contribute by:
 
 When you contribute, please add your name to the DESCRIPTION file here:
 
-https://github.com/r-transit/tidytransit/blob/master/DESCRIPTION#L6-L15
+https://github.com/r-transit/trread/blob/master/DESCRIPTION#L6-L15
 
 ## Issues
 
@@ -17,7 +17,7 @@ When filing an issue, the most important thing is to include a minimal reproduci
 
 ## Pull requests
 
-To contribute a change to tidytransit, you follow these steps:
+To contribute a change to trread, you follow these steps:
 
 1. Create a branch in git and make your changes.
 1. Push branch to github and issue pull request (PR).
