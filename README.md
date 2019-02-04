@@ -8,7 +8,7 @@ status](http://www.r-pkg.org/badges/version-ago/trread?)](https://cran.r-project
 # trread
 
 Use trread to calculate transit
-frequencies, and validate transit feeds. trread reads the [General Transit Feed Specification](http://gtfs.org/) into [tidyverse](https://tibble.tidyverse.org/) and [simple features](https://en.wikipedia.org/wiki/Simple_Features) dataframes.
+frequencies, and validate transit feeds. trread reads the [General Transit Feed Specification](http://gtfs.org/) into dataframes.
 
 If you need to work with map data consider using [tidytransit](https://github.com/r-transit/trread/).
 
