@@ -14,9 +14,6 @@ If you need to work with map data consider using [tidytransit](https://github.co
 
 ## Installation
 
-This package requires a working installation of
-[sf](https://github.com/r-spatial/sf#installing).
-
 A CRAN version is available:
 
 ``` r
