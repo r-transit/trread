@@ -27,14 +27,6 @@ For the development version from Github:
 devtools::install_github("r-transit/trread")
 ```
 
-# Usage
-
-Please see:
-
-- [the tutorial](http://trread.r-transit.org/articles/introduction.html)   
-- [the reference](http://trread.r-transit.org/reference/index.html).   
-
-
 # Background
 
 trread is a
