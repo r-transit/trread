@@ -14,9 +14,6 @@ If you need to work with map data consider using [tidytransit](https://github.co
 
 ## Installation
 
-This package requires a working installation of
-[sf](https://github.com/r-spatial/sf#installing).
-
 A CRAN version is available:
 
 ``` r
@@ -29,14 +26,6 @@ For the development version from Github:
 # install.packages("devtools")
 devtools::install_github("r-transit/trread")
 ```
-
-# Usage
-
-Please see:
-
-- [the tutorial](http://trread.r-transit.org/articles/introduction.html)   
-- [the reference](http://trread.r-transit.org/reference/index.html).   
-
 
 # Background
 
