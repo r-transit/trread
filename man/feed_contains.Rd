@@ -3,7 +3,7 @@
 \name{feed_contains}
 \alias{feed_contains}
 \title{Returns TRUE if the given gtfs_obj contains the table. Used to check for
-tidytransit's calculated tables in sublist}
+trread's calculated tables in sublist}
 \usage{
 feed_contains(gtfs_obj, table_name)
 }
@@ -14,5 +14,5 @@ feed_contains(gtfs_obj, table_name)
 }
 \description{
 Returns TRUE if the given gtfs_obj contains the table. Used to check for
-tidytransit's calculated tables in sublist
+trread's calculated tables in sublist
 }

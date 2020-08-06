@@ -2,7 +2,7 @@
 #' 
 #' Note that some GTFS feeds contain a frequency data frame already. 
 #' Consider using this instead, as it will be more accurate than what 
-#' tidytransit calculates. 
+#' trread calculates. 
 #' 
 #' @param gtfs_obj a list of gtfs dataframes as read by [read_gtfs()].
 #' @param start_hour (optional) an integer indicating the start hour (default 6)
@@ -85,7 +85,7 @@ get_stop_frequency <- function(gtfs_obj,
 #' 
 #' Note that some GTFS feeds contain a frequency data frame already. 
 #' Consider using this instead, as it will be more accurate than what 
-#' tidytransit calculates. 
+#' trread calculates. 
 #' 
 #' @param gtfs_obj a list of gtfs dataframes as read by the trread package.
 #' @param start_hour (optional) an integer, default 6 (6 am)

@@ -62,7 +62,7 @@ trigger_suppressWarnings <- function(expr, quiet) {
 
 }
 
-#' Writes a gtfs object to a zip file. Calculated tidytransit tables and columns are not exported.
+#' Writes a gtfs object to a zip file. Calculated trread tables and columns are not exported.
 #' @param gtfs_obj a gtfs feed object
 #' @param zipfile path to the zip file the feed should be written to
 #' @param compression_level a number between 1 and 9.9, passed to zip::zip
@@ -105,7 +105,7 @@ write_gtfs <- function(gtfs_obj, zipfile, compression_level = 9, as_dir = FALSE)
 }
 
 #' Returns TRUE if the given gtfs_obj contains the table. Used to check for
-#' tidytransit's calculated tables in sublist
+#' trread's calculated tables in sublist
 #' @param gtfs_obj gtfs object
 #' @param table_name name as string of the table to look for
 feed_contains <- function(gtfs_obj, table_name) {

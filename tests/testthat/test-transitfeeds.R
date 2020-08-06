@@ -1,7 +1,7 @@
 context("Import metadata from transitfeeds")
 
 working <- function() {
-  url <- "https://github.com/r-transit/tidytransit/raw/master/inst/extdata/sample-feed-fixed.zip"
+  url <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
   connecting <- function(url) {
     r <- base::try(httr::GET(url, httr::timeout(5)))
     if(!assertthat::is.error(r)) r$status_code == 200 else FALSE

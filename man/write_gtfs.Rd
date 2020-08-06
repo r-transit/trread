@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{write_gtfs}
 \alias{write_gtfs}
-\title{Writes a gtfs object to a zip file. Calculated tidytransit tables and columns are not exported.}
+\title{Writes a gtfs object to a zip file. Calculated trread tables and columns are not exported.}
 \usage{
 write_gtfs(gtfs_obj, zipfile, compression_level = 9, as_dir = FALSE)
 }
@@ -17,5 +17,5 @@ write_gtfs(gtfs_obj, zipfile, compression_level = 9, as_dir = FALSE)
 Files within the directory will be overwritten.}
 }
 \description{
-Writes a gtfs object to a zip file. Calculated tidytransit tables and columns are not exported.
+Writes a gtfs object to a zip file. Calculated trread tables and columns are not exported.
 }

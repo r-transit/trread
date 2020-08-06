@@ -1,6 +1,6 @@
 context("raptor travel time routing")
 
-local_gtfs_path <- system.file("extdata", "routing.zip", package = "tidytransit")
+local_gtfs_path <- system.file("extdata", "routing.zip", package = "trread")
 g <- read_gtfs(local_gtfs_path)
 g <- set_hms_times(g)
 test_from_stop_ids <- c("stop1a", "stop1b")
@@ -322,7 +322,7 @@ test_that("travel_times with arrival=TRUE stop_name", {
 })
 
 test_that("set_num_times w/o hms or num", {
-  local_gtfs_path = system.file("extdata", "routing.zip", package = "tidytransit")
+  local_gtfs_path = system.file("extdata", "routing.zip", package = "trread")
   g2 = read_gtfs(local_gtfs_path)
   g_st_dt = as.data.table(g2$stop_times)
   set_num_times(g_st_dt)

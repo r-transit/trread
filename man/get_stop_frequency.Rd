@@ -36,7 +36,7 @@ dataframe of stops with the number of departures and the headway
 \description{
 Note that some GTFS feeds contain a frequency data frame already.
 Consider using this instead, as it will be more accurate than what
-tidytransit calculates.
+trread calculates.
 }
 \examples{
 data(gtfs_duke)

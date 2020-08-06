@@ -47,7 +47,7 @@
 #' @import data.table
 #' @export
 #' @examples \donttest{
-#' nyc_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "tidytransit")
+#' nyc_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
 #' nyc <- read_gtfs(nyc_path)
 #'
 #' # you can use initial walk times to different stops in walking distance (arbitrary example values)
@@ -327,7 +327,7 @@ raptor = function(stop_times,
 #' @importFrom data.table fifelse
 #' @export
 #' @examples \donttest{
-#' nyc_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "tidytransit")
+#' nyc_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
 #' nyc <- read_gtfs(nyc_path)
 #' 
 #' # Use journeys departing after 7 AM with arrival time before 9 AM on 26th June
@@ -439,7 +439,7 @@ travel_times = function(filtered_stop_times,
 #' 
 #' @export                
 #' @examples 
-#' feed_path <- system.file("extdata", "sample-feed-fixed.zip", package = "tidytransit")
+#' feed_path <- system.file("extdata", "sample-feed-fixed.zip", package = "trread")
 #' g <- read_gtfs(feed_path)
 #' 
 #' # filter the sample feed

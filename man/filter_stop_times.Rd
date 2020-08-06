@@ -25,7 +25,7 @@ want to filter a feed multiple times it is faster to precalculate date_service_t
 Filter a \code{stop_times} table for a given date and timespan.
 }
 \examples{
-feed_path <- system.file("extdata", "sample-feed-fixed.zip", package = "tidytransit")
+feed_path <- system.file("extdata", "sample-feed-fixed.zip", package = "trread")
 g <- read_gtfs(feed_path)
 
 # filter the sample feed

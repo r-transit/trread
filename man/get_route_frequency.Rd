@@ -29,7 +29,7 @@ a dataframe of routes with variables (gtfs_obj$.$routes_frequency) for headway/f
 \description{
 Note that some GTFS feeds contain a frequency data frame already.
 Consider using this instead, as it will be more accurate than what
-tidytransit calculates.
+trread calculates.
 }
 \examples{
 data(gtfs_duke)
