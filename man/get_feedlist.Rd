@@ -13,8 +13,8 @@ a data frame with the gtfs feeds on transitfeeds.
 Get list of all available feeds from transitfeeds API
 }
 \examples{
-\donttest{
-feedlist_df <- get_feedlist() 
+\dontrun{
+feedlist_df <- get_feedlist()
 }
 }
 \seealso{

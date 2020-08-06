@@ -4,18 +4,24 @@
 \alias{get_stop_frequency}
 \title{Get Stop Frequency}
 \usage{
-get_stop_frequency(gtfs_obj, start_hour = 6, end_hour = 22,
-  service_id = "", dow = c(1, 1, 1, 1, 1, 0, 0), by_route = TRUE,
-  wide = FALSE)
+get_stop_frequency(
+  gtfs_obj,
+  start_hour = 6,
+  end_hour = 22,
+  service_ids = c(),
+  dow = c(1, 1, 1, 1, 1, 0, 0),
+  by_route = TRUE,
+  wide = FALSE
+)
 }
 \arguments{
-\item{gtfs_obj}{a list of gtfs dataframes as read by read_gtfs().}
+\item{gtfs_obj}{a list of gtfs dataframes as read by \code{\link[=read_gtfs]{read_gtfs()}}.}
 
-\item{start_hour}{(optional) an integer indicating the start hour (default 7)}
+\item{start_hour}{(optional) an integer indicating the start hour (default 6)}
 
-\item{end_hour}{(optional) an integer indicating the end hour (default 20)}
+\item{end_hour}{(optional) an integer indicating the end hour (default 22)}
 
-\item{service_id}{(optional) a string from the calendar_df dataframe identifying a particular service schedule.}
+\item{service_ids}{(optional) a set of service_ids from the calendar dataframe identifying a particular service id}
 
 \item{dow}{(optional) integer vector indicating which days of week to calculate for. default is weekday, e.g. c(1,1,1,1,1,0,0)}
 
@@ -24,14 +30,17 @@ get_stop_frequency(gtfs_obj, start_hour = 6, end_hour = 22,
 \item{wide}{(optional) if true, then return a wide rather than tidy data frame}
 }
 \value{
-a gtfs_obj with a dataframe of stops with a "Trips" variable representing the count trips taken through each stop for a route within a given time frame
+dataframe of stops with the number of departures and the headway
+(departures divided by timespan) as columns.
 }
 \description{
-Get Stop Frequency
+Note that some GTFS feeds contain a frequency data frame already.
+Consider using this instead, as it will be more accurate than what
+tidytransit calculates.
 }
 \examples{
-data(gtfs_obj)
-gtfs_obj <- get_stop_frequency(gtfs_obj)
-x <- order(gtfs_obj$stops_frequency_df$headway)
-head(gtfs_obj$stops_frequency_df[x,])
+data(gtfs_duke)
+stop_frequency <- get_stop_frequency(gtfs_duke)
+x <- order(stop_frequency$headway)
+head(stop_frequency[x,])
 }

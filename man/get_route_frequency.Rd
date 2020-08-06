@@ -4,8 +4,13 @@
 \alias{get_route_frequency}
 \title{Get Route Frequency}
 \usage{
-get_route_frequency(gtfs_obj, start_hour = 6, end_hour = 22,
-  quiet = FALSE, service_id = "", dow = c(1, 1, 1, 1, 1, 0, 0))
+get_route_frequency(
+  gtfs_obj,
+  start_hour = 6,
+  end_hour = 22,
+  service_ids = c(),
+  dow = c(1, 1, 1, 1, 1, 0, 0)
+)
 }
 \arguments{
 \item{gtfs_obj}{a list of gtfs dataframes as read by the trread package.}
@@ -14,21 +19,21 @@ get_route_frequency(gtfs_obj, start_hour = 6, end_hour = 22,
 
 \item{end_hour}{(optional) an integer, default 22 (10 pm)}
 
-\item{quiet}{default FALSE. whether to echo process messages}
+\item{service_ids}{(optional) a string from the calendar dataframe identifying a particular service schedule.}
 
-\item{service_id}{(optional) a string from the calendar_df dataframe identifying a particular service schedule.}
-
-\item{dow}{(optional) an integeger vector with days of week. monday=1. default: c(1,1,1,1,1,0,0)}
+\item{dow}{(optional) an integer vector with days of week. monday=1. default: c(1,1,1,1,1,0,0)}
 }
 \value{
-a gtfs_obj with a dataframe of routes with variables for headway/frequency for a route within a given time frame
+a dataframe of routes with variables (gtfs_obj$.$routes_frequency) for headway/frequency for a route within a given time frame
 }
 \description{
-should take:
+Note that some GTFS feeds contain a frequency data frame already.
+Consider using this instead, as it will be more accurate than what
+tidytransit calculates.
 }
 \examples{
-data(gtfs_obj)
-gtfs_obj <- get_route_frequency(gtfs_obj)
-x <- order(gtfs_obj$routes_frequency_df$median_headways)
-head(gtfs_obj$routes_frequency_df[x,])
+data(gtfs_duke)
+routes_frequency <- get_route_frequency(gtfs_duke)
+x <- order(routes_frequency$median_headways)
+head(routes_frequency[x,])
 }

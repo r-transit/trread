@@ -4,37 +4,37 @@
 \alias{read_gtfs}
 \title{Get and validate dataframes of General Transit Feed Specification (GTFS) data.}
 \usage{
-read_gtfs(path, local = FALSE, quiet = TRUE, frequency = FALSE)
+read_gtfs(path, quiet = TRUE)
 }
 \arguments{
-\item{path}{Character. url link to zip file OR path to local zip file. if to local path, then option \code{local} must be set to TRUE.}
-
-\item{local}{Boolean. If the paths are searching locally or not. Default is FALSE (that is, urls).}
+\item{path}{Character. URL link to zip file OR path to local zip file.}
 
 \item{quiet}{Boolean. Whether to see file download progress and files extract. FALSE by default.}
-
-\item{frequency}{Boolean. Whether to add frequency/headway calculations to the gtfs object}
 }
 \value{
 A GTFS object. That is, a list of dataframes of GTFS data.
 }
 \description{
 This function reads GTFS text files from a local or remote zip file.
-It also validates the files against the GTFS specification by file, requirement status, and column name
+It also validates the files against the GTFS specification by file, requirement status,
+and column name.
+}
+\details{
 The data are returned as a list of dataframes and a validation object,
 which contains details on whether all required files were found,
 and which required and optional columns are present.
+#'
 }
 \examples{
 \donttest{
 library(dplyr)
-u1 <- "https://github.com/r-transit/trread/raw/master/inst/extdata/sample-feed-fixed.zip"
+u1 <- "https://github.com/r-transit/tidytransit/raw/master/inst/extdata/sample-feed-fixed.zip"
 sample_gtfs <- read_gtfs(u1)
 attach(sample_gtfs)
 #list routes by the number of stops they have
-routes_df \%>\% inner_join(trips_df, by="route_id") \%>\%
-  inner_join(stop_times_df) \%>\% 
-    inner_join(stops_df, by="stop_id") \%>\% 
+routes \%>\% inner_join(trips, by="route_id") \%>\%
+  inner_join(stop_times) \%>\%
+    inner_join(stops, by="stop_id") \%>\%
       group_by(route_long_name) \%>\%
         summarise(stop_count=n_distinct(stop_id)) \%>\%
           arrange(desc(stop_count))
