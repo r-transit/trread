@@ -45,6 +45,7 @@
 #' @seealso [travel_times()] for an easier access to travel time calculations via stop_names.
 #' 
 #' @import data.table
+#' @importFrom dplyr distinct
 #' @export
 #' @examples \donttest{
 #' nyc_path <- system.file("extdata", "google_transit_nyc_subway.zip", package = "trread")
